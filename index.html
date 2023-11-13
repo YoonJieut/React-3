@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <h1 id="title"></h1>
+    <button id="update-button">제목 변경</button>
+  </div>
+
+  <script>
+    /** 
+     * 마치 곶간에 물건을 보관하는 것
+     * 데이터를 관리할 객체를 만들어 관리한다.
+     * State라는 개념
+     * 아래의 stateDate 객체 선언을 브라우저가 읽는 순간 메모리 어딘가에 존재하는 주소를 할당 받는다.
+    */
+    let stateData = {
+      basicTitle : "기본 제목",
+      newTitle : "새로운 제목"
+    }
+
+    // 문서 식별
+    const h1 = document.getElementById('title');
+    const button = document.getElementById('update-button');
+
+
+    /**
+     * @param {HTMLElement} domEl
+     * return {void} // 여기서 void는 어디서 온 말일까?
+     * void는 return 없음을 의미
+     * updateUI 함수는 domEl이라는 매개변수를 받는다.
+     * 예제에서 말하는 매개변수는 h1
+     * 
+     */
+    function upDateUI (domEl){
+      // 선택된 dom element의 textContent를 stateData.basicTitle로 변경한다.
+      domElement.textContent = stateData.basicTitle;
+    }
+
+    // 데이터를 변경하는 함수
+    function updateTitle(setNewTitle) {
+      // stateData.basicTitle에 매개변수 setNewtitle을 할당
+      // ! 그냥 대치되는게 아니라 상태가 변한다.
+      stateData.basicTitle = setNewTitle;
+      // updateUI 함수를 호출한다. updateTitle 함수는 updateUI함수를 호출하는 것까지 책임진다.
+      upDateUI(h1);
+    }
+
+    // 최초의 한번 접속 get을 위해 한번은 실행한다.
+    upDateUI(h1);
+
+    //이벤트 리스터 추가
+    button.addEventListener('click', function(){
+      // button을 클릭하면 stateData에 마련된 함수가 '연결되어'
+      // 결국에는 h1데이터는 새로은 값으로 변한다.
+      upDateUI(stateData.newTitle);
+    })
+
+  </script>
+</body>
+</html>
