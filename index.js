@@ -19,3 +19,14 @@
  * * express middleware 기능
  * * 찾아보면서 추가하기
  */
+
+const express = require('express');
+const app = express();
+
+a
+
+app.get('/', )
+
+
+
+
