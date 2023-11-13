@@ -26,7 +26,7 @@
     // 문서 식별
     const h1 = document.getElementById('title');
     const button = document.getElementById('update-button');
-
+    console.log(h1, button);
 
     /**
      * @param {HTMLElement} domEl
@@ -38,7 +38,7 @@
      */
     function upDateUI (domEl){
       // 선택된 dom element의 textContent를 stateData.basicTitle로 변경한다.
-      domElement.textContent = stateData.basicTitle;
+      domEl.textContent = stateData.basicTitle;
     }
 
     // 데이터를 변경하는 함수
@@ -57,7 +57,7 @@
     button.addEventListener('click', function(){
       // button을 클릭하면 stateData에 마련된 함수가 '연결되어'
       // 결국에는 h1데이터는 새로은 값으로 변한다.
-      upDateUI(stateData.newTitle);
+      updateTitle(stateData.newTitle);
     })
 
   </script>
