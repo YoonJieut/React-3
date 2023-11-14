@@ -23,8 +23,17 @@
 const express = require('express');
 const app = express();
 
+app.use(express.json()); // JSON 요청 본문을 처리하기 위한 미들웨어
 
-app.get('/', )
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
 
 
 
