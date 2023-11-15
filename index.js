@@ -21,17 +21,19 @@
  */
 
 const express = require('express');
+const path = require('path');
 const app = express();
 
 app.use(express.json()); // JSON 요청 본문을 처리하기 위한 미들웨어
+app.use(express.static("./")); 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.sendFile(__dirname + '/main.html');
 });
 
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port http://localhost:${PORT}`);
 });
 
 
